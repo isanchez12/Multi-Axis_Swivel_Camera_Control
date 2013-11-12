@@ -1,0 +1,99 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <gazebo>
+      <plugin name="ros_control" filename="libros_control_gazebo_plugin.so">
+        <ns>swivel/ros_control</ns>
+        <robotSimType>ros_control_gazebo_tests/SWIVELSim</robotSimType>
+        <controlPeriod>0.001</controlPeriod>
+      </plugin>
+    </gazebo>
+
+  <link name="base">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry >
+	<mesh filename="package://swivel_description/meshes/Swivel_Base.STL" />
+      </geometry>
+      <material name="SwivelLightGray" />
+    </visual>
+     <inertial>
+        <mass value="9"/>
+        <inertia ixx="9.0" ixy="0.0" ixz="0.0" iyy="9.0" iyz="0.0" izz="9.0"/>
+      </inertial> 
+  </link>
+
+  <link name="link_1">
+    <visual>
+      <origin xyz="0 0 0.06" rpy="0 0 0" />
+      <geometry >
+	<mesh filename="package://swivel_description/meshes/Swivel_Link_1.STL" />
+      </geometry>
+      <material name="SwivelLightGray" />
+     </visual>
+     <inertial>
+        <mass value="4"/>
+        <inertia ixx="4.0" ixy="0.0" ixz="0.0" iyy="4.0" iyz="0.0" izz="4.0"/>
+      </inertial> 
+  </link>
+
+  <joint name="swivel_J0" type="revolute">
+    <parent link="base"/>
+    <child link="link_1"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="3.14" effort="10"
+	   velocity="1.0" />
+    <joint_properties damping="0.0" friction="0.0"/>
+  </joint>
+
+  <link name="link_2">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry >
+	<mesh filename="package://swivel_description/meshes/Swivel_Link_2.STL" />
+      </geometry>
+      <material name="SwivelRed" />
+    </visual>
+        <inertial>
+        <mass value="2"/>
+        <inertia ixx="2.0" ixy="0.0" ixz="0.0" iyy="2.0" iyz="0.0" izz="2.0"/>
+      </inertial> 
+  </link>
+
+  <joint name="swivel_J1" type="revolute">
+    <parent link="link_1"/>
+    <child link="link_2"/>
+    <origin xyz="0 0 0.190" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-1.745" upper="2.356" effort="10"
+	   velocity="1.0" />
+    <joint_properties damping="0.0" friction="0.0"/>
+  </joint>
+
+  <link name="camera_mount">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry >
+	<mesh filename="package://swivel_description/meshes/Camera.STL" />
+      </geometry>
+      <material name="SwivelGreen" />
+    </visual>
+    <inertial>
+        <mass value="0.5"/>
+        <inertia ixx="0.5" ixy="0.0" ixz="0.0" iyy="0.5" iyz="0.0" izz="0.5"/>
+      </inertial> 
+  </link>
+
+  <joint name="camera_J2" type="fixed">
+    <parent link="link_2"/>
+    <child link="camera_mount"/>
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit lower="-2.094" upper="2.670" effort="10"
+	   velocity="1.0" />
+    <joint_properties damping="0.0" friction="0.0"/>
+  </joint>
+
+
+</robot>

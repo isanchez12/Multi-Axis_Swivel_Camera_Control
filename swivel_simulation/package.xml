@@ -1,0 +1,36 @@
+
+<package>
+  <name>swivel_simulation</name>
+  <version>0.1.0</version>
+  <description>swivel_simulation</description>
+  <maintainer email="ish.sanchez12@gmail.com">Ish Sanchez</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://github.com/isanchez12/denso</url>
+
+  <author email="ish.sanchez12@gmail.com">Ish Sanchez</author>
+  <author>Ish Sanchez</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>gazebo_ros</build_depend>
+  <build_depend>gazebo_ros_control</build_depend>
+  <build_depend>effort_controllers</build_depend>
+  <build_depend>hardware_interface</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>swivel_model</run_depend>
+  <run_depend>swivel_gazebo</run_depend>
+  <run_depend>hardware_interface</run_depend>
+  <run_depend>gazebo_ros_control</run_depend>
+  <run_depend>effort_controllers</run_depend>
+  <run_depend>gazebo_ros</run_depend>
+
+  <export>
+    <gazebo_ros_control plugin="${prefix}/gazebo_ros_control_plugins.xml"/>
+  </export>
+</package>
+
