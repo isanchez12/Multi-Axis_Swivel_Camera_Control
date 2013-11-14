@@ -14,12 +14,12 @@
 
 #include "swivel_sim.h"
 
-using namespace irk_simulation;
+using namespace swivel_simulation;
 
 SWIVELSim::SWIVELSim(const std::string &prefix,
    hardware_interface::JointStateInterface &js_interface,
     hardware_interface::EffortJointInterface &ej_interface) :
-  n_dof_(3),
+  n_dof_(2),
   n_actuated_dof_(2),
   initialized_(false),
   prefix_(prefix),
@@ -47,8 +47,8 @@ bool SWIVELSim::initSim(
   joint_name_[0] = prefix_ + "swivel_J0";
   joint_name_[1] = prefix_ + "swivel_J1";
 
-  // Unactuated Joints  
-  joint_name_[2] = prefix_ + "swivel_J2";
+  // Maybe will mount a camera fixture  
+ // joint_name_[2] = prefix_ + "swivel_J2";
   
 
   for(unsigned int j=0; j < n_dof_; j++) {   
