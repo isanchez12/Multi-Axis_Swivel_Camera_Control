@@ -5,8 +5,8 @@
    <description> The swivel_description package</description>
 
    <maintainer email="ish.sanchez12@gmail.com"> ish sanchez</maintainer>
-
-
+   <author email="ish.sanchez12@gmail.com"> ish sanchez</author>
+   
    <license>BSD</license>
 
    <buildtool_depend>catkin</buildtool_depend>
