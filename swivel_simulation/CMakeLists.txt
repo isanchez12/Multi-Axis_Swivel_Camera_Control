@@ -1,11 +1,7 @@
-
-
-
 cmake_minimum_required(VERSION 2.8.3)
-project(irk_simulation)
+project(swivel_simulation)
 
-find_package(catkin REQUIRED COMPONENTS 
-  roscpp gazebo_ros_control gazebo_ros) 
+find_package(catkin REQUIRED COMPONENTS gazebo_ros) 
 #effort_controllers gazebo_ros)
 
 # Find gazebo
@@ -15,7 +11,7 @@ if (PKG_CONFIG_FOUND)
 endif()
 
 catkin_package(
-  CATKIN_DEPENDS roscpp gazebo_ros_control effort_controllers gazebo_ros
+  CATKIN_DEPENDS 
   INCLUDE_DIRS # TODO include
   LIBRARIES # TODO
   )

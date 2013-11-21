@@ -1,13 +1,13 @@
 
 <package>
-  <name>swivel_simulation</name>
+  <name>swivel_gazebo</name>
   <version>0.1.0</version>
-  <description>swivel_simulation</description>
+  <description>swivel_gazebo</description>
   <maintainer email="ish.sanchez12@gmail.com">Ish Sanchez</maintainer>
 
   <license>BSD</license>
 
-  <url type="website">http://github.com/isanchez12/denso</url>
+  <url type="website">http://github.com/isanchez12/Multi-Axis_Swivel_Camera_Control</url>
 
   <author email="ish.sanchez12@gmail.com">Ish Sanchez</author>
   <author>Ish Sanchez</author>
