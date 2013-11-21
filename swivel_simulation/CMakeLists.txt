@@ -5,7 +5,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(irk_simulation)
 
 find_package(catkin REQUIRED COMPONENTS 
-  roscpp gazebo_ros_control effort_controllers gazebo_ros)
+  roscpp gazebo_ros_control gazebo_ros) 
+#effort_controllers gazebo_ros)
 
 # Find gazebo
 include (FindPkgConfig)
