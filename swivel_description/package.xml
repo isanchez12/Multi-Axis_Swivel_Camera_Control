@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package>
+   <name>swivel_description</name>
+   <version>0.0.0</version>
+   <description> The swivel_description package</description>
+
+   <maintainer email="ish.sanchez12@gmail.com"> ish sanchez</maintainer>
+
+
+   <license>BSD</license>
+
+   <buildtool_depend>catkin</buildtool_depend>
+
+
+  <export>
+  </export>
+</package>
+
+
+

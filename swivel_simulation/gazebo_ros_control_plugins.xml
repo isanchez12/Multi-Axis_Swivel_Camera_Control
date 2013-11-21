@@ -11,12 +11,4 @@
     </description>
   </class>
 
-  <class
-    name="swivel_simulation/MasterConsoleHWSim"
-    type="swivel_simulation::MasterConsoleHWSim"
-    base_class_type="gazebo_ros_control::RobotHWSim">
-    <description>
-     Simulator for a mult-axis camera
-    </description>
-  </class>
 </library>

@@ -23,6 +23,4 @@ include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
 
 # Build RobotSim Interface
 add_library(${PROJECT_NAME}
-  src/swivel_sim.cpp
-  src/swivel_hw_sim.cpp 
-  src/master_console_hw_sim.cpp)
+  src/swivel_sim.cpp )
