@@ -4,11 +4,6 @@ project(swivel_simulation)
 find_package(catkin REQUIRED COMPONENTS gazebo_ros) 
 #effort_controllers gazebo_ros)
 
-# Find gazebo
-include (FindPkgConfig)
-if (PKG_CONFIG_FOUND)
-  pkg_check_modules(GAZEBO gazebo)
-endif()
 
 catkin_package(
   CATKIN_DEPENDS 
@@ -16,8 +11,3 @@ catkin_package(
   LIBRARIES # TODO
   )
 
-include_directories(include ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS})
-
-# Build RobotSim Interface
-add_library(${PROJECT_NAME}
-  src/swivel_sim.cpp )
