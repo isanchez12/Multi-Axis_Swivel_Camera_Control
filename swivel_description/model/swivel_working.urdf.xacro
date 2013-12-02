@@ -27,9 +27,10 @@
   <!-- Base Link -->
   <link name="link1">
     <visual>
+    <!-- origin xyz="0 0 0" rpy="1.57 0 0"-->
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-    <mesh filename="package://rrbot_description/meshes/Swivel_B.stl"/>
+    <mesh filename="package://rrbot_description/meshes/swivel_base.stl"/>
       </geometry>
       <material name="orange"/>
     </visual>
@@ -43,21 +44,24 @@
     </inertial>
   </link>
 
-  <joint name="joint1" type="continuous">
+  <joint name="joint1" type="revolute">
     <parent link="link1"/>
     <child link="link2"/>
     <!-- remember units are in meters, but the orginal cad is in inch-->
-    <origin xyz="-0.0508 -0.0762 0.0381" rpy="0 0 0"/>
+      <!--0.1016 -0.0762 0.0581-->
+    <origin xyz="0 0 0.0508" rpy="0 0 0"/>
     <axis xyz="0 0 1"/>
-    <dynamics damping="0.7"/>
+    <dynamics damping="0.3"/>
+    <limit effort="100.0" lower="${-PI/4}" upper="${PI/4}" velocity="1"/>
   </joint>
 
   <!-- Middle Link -->
   <link name="link2">
     <visual>
+    <!-- origin xyz="-0.0508 -0.0762 0.0381" rpy="1.57 0 0"-->
       <origin xyz="0 0 0" rpy="1.57 0 0"/>
       <geometry>
-     <mesh filename="package://rrbot_description/meshes/Swivel_L1.stl"/>
+     <mesh filename="package://rrbot_description/meshes/swivel_link1.stl"/>
      </geometry>
       <material name="black"/>
     </visual>
@@ -74,17 +78,19 @@
   <joint name="joint2" type="continuous">
     <parent link="link2"/>
     <child link="link3"/>
-    <origin xyz="0.0508 0 0.1016" rpy="0 0 0"/>
-    <axis xyz="0 1 0"/>
+    <!-- origin xyz="0.0508 0 0.1016" rpy="0 0 0"-->
+    <origin xyz="0 0 0.254" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
     <dynamics damping="0.7"/>
   </joint>
 
   <!-- Top Link -->
   <link name="link3">
     <visual>
-      <origin xyz="0 0 0" rpy="1.57 0 0"/>
+      <!-- negative 6 inches along z axis from joint 2-->
+      <origin xyz="0 0 -0.1524" rpy="1.57 0 0"/>
       <geometry>
-      <mesh filename="package://rrbot_description/meshes/Swivel_L2.stl"/>
+      <mesh filename="package://rrbot_description/meshes/swivel_link2.stl"/>
      </geometry>
       <material name="orange"/>
     </visual>
@@ -100,7 +106,8 @@
 
   <joint name="hokuyo_joint" type="fixed">
     <axis xyz="0 1 0" />
-    <origin xyz="0.1143 0 0.0508" rpy="1.57 0 0"/>
+    <!-- negative 4 inches down  -->
+    <origin xyz="0 0 -0.1016" rpy="1.57 0 0"/>
     <parent link="link3"/>
     <child link="hokuyo_link"/>
   </joint>
